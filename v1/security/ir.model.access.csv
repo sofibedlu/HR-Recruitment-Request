@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_recruitment_request_manager,recruitment.request manager,model_recruitment_request,recruitment_request.group_recruitment_manager,1,1,1,1
+access_recruitment_request_requester,recruitment.request requester,model_recruitment_request,recruitment_request.group_recruitment_requester,1,0,1,0
