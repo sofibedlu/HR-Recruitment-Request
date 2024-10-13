@@ -1,0 +1,31 @@
+<odoo>
+    <data noupdate="0">
+        <!-- Recruitment Requester Group -->
+        <record id="group_recruitment_requester" model="res.groups">
+            <field name="name">Recruitment Requester</field>
+            <field name="category_id" ref="base.module_category_human_resources"/>
+        </record>
+
+        <!-- Recruitment Manager Group -->
+        <record id="group_recruitment_manager" model="res.groups">
+            <field name="name">Recruitment Manager</field>
+            <field name="category_id" ref="base.module_category_human_resources"/>
+        </record>
+
+        <!-- Rule for Recruitment Requester: Can only see own records -->
+        <record id="recruitment_request_rule_requester" model="ir.rule">
+            <field name="name">Recruitment Requester Own Records</field>
+            <field name="model_id" ref="model_recruitment_request"/>
+            <field name="groups" eval="[(4, ref('group_recruitment_requester'))]"/>
+            <field name="domain_force">[('requester_id', '=', user.id)]</field>
+        </record>
+
+        <!-- Rule for Recruitment Manager: Can see all records -->
+        <record id="recruitment_request_rule_manager" model="ir.rule">
+            <field name="name">Recruitment Manager All Records</field>
+            <field name="model_id" ref="model_recruitment_request"/>
+            <field name="groups" eval="[(4, ref('group_recruitment_manager'))]"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+        </record>
+    </data>
+</odoo>

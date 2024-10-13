@@ -1,0 +1,19 @@
+.priority-low {
+    background-color: green;
+    color: white;
+}
+
+.priority-medium {
+    background-color: orange;
+    color: white;
+}
+
+.priority-high {
+    background-color: red;
+    color: white;
+}
+
+.badge {
+    padding: 5px;
+    border-radius: 3px;
+}
