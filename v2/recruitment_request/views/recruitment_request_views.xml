@@ -30,7 +30,7 @@
                         <group>
                             <field name="manager_id" domain="[('id', 'in', hr_responsible_user_ids)]"/>
                             <field name="expected_date" />
-                            <field name="priority" />
+                            <field name="priority" widget="priority" />
                         </group>
                     </group>
                     <group>
