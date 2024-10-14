@@ -25,7 +25,8 @@ class RecruitmentRequest(models.Model):
     priority = fields.Selection([
         ('low', 'Low'),
         ('medium', 'Medium'),
-        ('high', 'High')
+        ('high', 'High'),
+        ('very_high', 'Very High')
     ], string='Priority', required=True, default='medium')
 
     hr_responsible_user_ids = fields.Many2many('res.users', compute='_compute_hr_responsible_user_ids', string='HR Responsible Users')
