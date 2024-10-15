@@ -5,8 +5,7 @@ class RecruitmentRequest(models.Model):
     _description = 'Recruitment Request'
     _inherit = ['mail.thread', 'mail.activity.mixin']
 
-    name = fields.Char(string='Subject Title', required=True)
-    number = fields.Char(string='Number', required=True, copy=False, readonly=True, default='New')
+    name = fields.Char(string='Number', required=True, copy=False, readonly=True, default='New')
     requester_id = fields.Many2one('res.users', string='Requester', required=True, default=lambda self: self.env.user)
     manager_id = fields.Many2one('res.users', string='Approval Manager', required=True)
     department_id = fields.Many2one('hr.department', string='Department', required=True)
@@ -40,8 +39,8 @@ class RecruitmentRequest(models.Model):
     def create(self, vals):
         if vals.get('number_of_employees', 0) == 0:
             vals['number_of_employees'] = 1
-        if vals.get('number', 'New') == 'New':
-            vals['number'] = self.env['ir.sequence'].next_by_code('recruitment.request') or 'New'
+        if vals.get('name', 'New') == 'New':
+            vals['name'] = self.env['ir.sequence'].next_by_code('recruitment.request') or 'New'
         return super(RecruitmentRequest, self).create(vals)
     
     def write(self, vals):
